@@ -353,6 +353,14 @@
     "@chakra-ui/react-utils" "1.2.3"
     "@chakra-ui/utils" "1.10.4"
 
+"@chakra-ui/pro-theme@^0.0.50":
+  version "0.0.50"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/pro-theme/-/pro-theme-0.0.50.tgz#a361d32285b580144d66612b84b6ec4a6c2e9670"
+  integrity sha512-6/Ittbw9eH27WzsMhuE8TiqKaDebHzr50X64699kxpfefkY/3qO88aimBffFW8j5E4de32vmzsvNxk0HOikjOw==
+  dependencies:
+    "@chakra-ui/theme-tools" "2.0.1"
+    focus-visible "5.2.0"
+
 "@chakra-ui/progress@1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@chakra-ui/progress/-/progress-1.2.6.tgz#4a3a40e826c8c72160d3c8ff411e86244e280ebc"
@@ -562,6 +570,14 @@
   integrity sha512-Wxz3XSJhPCU6OwCHEyH44EegEDQHwvlsx+KDkUDGevOjUU88YuNqOVkKtgTpgMLNQcsrYZ93oPWZUJqqCVNRew==
   dependencies:
     "@chakra-ui/utils" "1.10.4"
+    "@ctrl/tinycolor" "^3.4.0"
+
+"@chakra-ui/theme-tools@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-2.0.1.tgz#9b33e35d6a3753c4f487226cc0c37fa9cf52e731"
+  integrity sha512-CQn87uYxe3X8JmTAA52+jVS3A9FtioT4NDRUISN178yRnOly1Z6s01iYlbT37LemLSP2T3bCnHqFhdQKgS5yew==
+  dependencies:
+    "@chakra-ui/utils" "2.0.1"
     "@ctrl/tinycolor" "^3.4.0"
 
 "@chakra-ui/theme@1.14.1":
@@ -1188,6 +1204,11 @@ focus-lock@^0.9.1:
   integrity sha512-YtHxjX7a0IC0ZACL5wsX8QdncXofWpGPNoVMuI/nZUrPGp6LmNI6+D5j0pPj+v8Kw5EpweA+T5yImK0rnWf7oQ==
   dependencies:
     tslib "^2.0.3"
+
+focus-visible@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.2.0.tgz#3a9e41fccf587bd25dcc2ef045508284f0a4d6b3"
+  integrity sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==
 
 form-data@^4.0.0:
   version "4.0.0"

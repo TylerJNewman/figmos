@@ -8,12 +8,23 @@ export const getMediumPosts = async (): Promise<Post[]> => {
     'https://medium.com/feed/@nntaleb',
   )) as {items: MediumPost[]}
 
-  const posts: Post[] = items.map(({guid, title, link, isoDate}) => ({
-    id: guid,
-    title,
-    link,
-    date: isoDate,
-  }))
+  const posts: Post[] = items.map(
+    ({
+      guid,
+      title,
+      link,
+      isoDate,
+      ['content:encodedSnippet']: excerpt = '',
+    }) => {
+      return {
+        id: guid,
+        title,
+        link,
+        excerpt,
+        date: isoDate,
+      }
+    },
+  )
 
   return posts
 }
