@@ -1,6 +1,6 @@
-import { Flex, Heading } from '@chakra-ui/react'
+import {Flex, Heading} from '@chakra-ui/react'
 
-export const Hero = ({ title }: { title: string }) => (
+const Hero = ({title}: {title: string}) => (
   <Flex
     justifyContent="center"
     alignItems="center"
@@ -12,6 +12,4 @@ export const Hero = ({ title }: { title: string }) => (
   </Flex>
 )
 
-Hero.defaultProps = {
-  title: 'with-chakra-ui-typescript',
-}
+export default Hero

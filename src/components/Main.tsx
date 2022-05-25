@@ -1,6 +1,6 @@
-import { Stack, StackProps } from '@chakra-ui/react'
+import {Stack, StackProps} from '@chakra-ui/react'
 
-export const Main = (props: StackProps) => (
+const Main = (props: StackProps) => (
   <Stack
     spacing="1.5rem"
     width="100%"
@@ -11,3 +11,5 @@ export const Main = (props: StackProps) => (
     {...props}
   />
 )
+
+export default Main
