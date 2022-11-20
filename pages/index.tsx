@@ -19,16 +19,14 @@ const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
 
 const Home = ({ redditLinks, twitterLinks }: IBlog) => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2 bg-th-background text-th-primary-dark transition-colors">
+    <div className="font-national_2 flex min-h-screen flex-col items-center justify-center py-2 bg-th-background text-th-primary-dark transition-colors">
       <Head>
         <title>Figmos</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1">
-        <h1 className="text-4xl font-bold">Figmos</h1>
-
-        <p className="mt-3 text-2xl mb-8">A news aggregator</p>
+        <h1 className="text-5xl font-bold my-2">Figmos</h1>
 
         <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <Reddit links={redditLinks} />
