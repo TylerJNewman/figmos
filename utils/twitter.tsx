@@ -37,10 +37,17 @@ export const getTwitterHotNews = async (): Promise<any> => {
   };
   const { data } = await axios.get<GETListsIdtweetsResponse>(url, { headers });
 
+  debugger;
+
+  const getUrlsWithoutIndices = (text: string) => {
+    const urls = twitter.extractUrls(text);
+    return urls;
+  };
+
   return data.data.map((tweet) => ({
     id: tweet.id,
     title: textWithoutUrls(tweet.text),
-    link: getUrls(tweet.text)?.length ? getUrls(tweet.text)[0] : "",
+    link: getUrlsWithoutIndices(tweet.text)?.length ? getUrlsWithoutIndices(tweet.text)[0] : "",
     permalink: `https://twitter.com/${tweet.author_id}/status/${tweet.id}`,
   }));
 };
