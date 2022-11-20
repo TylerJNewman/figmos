@@ -1,6 +1,6 @@
 import axios from "axios";
 import { formatISO } from "date-fns";
-import { GETTweetsSearchRecentResponse } from "twitter-types";
+import { GETTweetsSearchRecentResponse, GETListsIdtweetsResponse, GETListsIdTweetsRoute } from "twitter-types";
 import twitter from "twitter-text";
 
 // convert epoch time to ISO string
@@ -27,34 +27,20 @@ const textWithoutUrls = (text: string) => {
   const textWithoutUrls = removeEntitiesFromText(text, urls);
   return textWithoutUrls;
 };
-//  retrieve trending News from Twitter API
 export const getTwitterHotNews = async (): Promise<any> => {
-  const baseUrl = "https://api.twitter.com/2/tweets/search/recent";
-  const query = "from:nytimes";
-  const maxResults = 10;
-  const tweetFields =
-    "author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,public_metrics,referenced_tweets,source,text,withheld";
-  const userFields =
-    "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld";
-  const expansions = "author_id";
-  const url = `${baseUrl}?query=${query}&max_results=${maxResults}&tweet.fields=${tweetFields}&user.fields=${userFields}&expansions=${expansions}`;
+  const baseUrl = "https://api.twitter.com/2";
+  const route = GETListsIdTweetsRoute("35744510");
+  const url = `${baseUrl}${route}?tweet.fields=created_at,entities,public_metrics,source,text,withheld&expansions=author_id&user.fields=created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld`;
 
   const headers = {
     Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
   };
+  const { data } = await axios.get<GETListsIdtweetsResponse>(url, { headers });
 
-  const { data } = await axios.get<GETTweetsSearchRecentResponse>(url, { headers });
-  const getText = (text: string) => twitter.htmlEscape(text);
-
-  const getUrls = (text: string) => twitter.extractUrls(text);
   return data.data.map((tweet) => ({
     id: tweet.id,
     title: textWithoutUrls(tweet.text),
-    permalink: `https://twitter.com/${tweet.author_id}/status/${tweet.id}`,
     link: getUrls(tweet.text)?.length ? getUrls(tweet.text)[0] : "",
-
-    // date: epochToISO(tweet.created_at),
-    // permanlink: `https://twitter.com/${tweet.author_id}/status/${tweet.id}`,
-    // link: `https://twitter.com/${tweet.author_id}/status/${tweet.id}`,
+    permalink: `https://twitter.com/${tweet.author_id}/status/${tweet.id}`,
   }));
 };
