@@ -87,26 +87,26 @@ const Stack = ({
 const MyList = ({ links, title, Icon }: Props) => {
   const isLastPost = (index: number) => index === links.length - 1;
   return (
-    <Center className="mb-14">
+    <Center>
       <Container>
         <Stack gap={2}>
           <Divider />
           <div className="flex items-center w-full">
-            {/* <Icon className="w-10 h-10 mr-2" /> */}
+            <Icon className="w-8 h-8 mx-4" />
             <Text className="text-2xl font-bold">{title}</Text>
           </div>
 
           {/* <Divider className="border-th-primary-dark border-2" /> */}
           <Divider />
-          <List className="h-full border-gray-200 py-2">
+          <List className="h-full border-gray-200">
             <Stack gap={0}>
               {links.map((post, index) => (
                 <>
-                  <li key={index} className="flex ">
+                  <li key={index} className="flex items-center">
                     <NextLink href={post.permalink}>
                       <Icon
-                        className="h-6 w-6 text-th-primary-dark
-                        mr-3 flex-shrink-0"
+                        className="h-4 w-4 text-th-primary-dark
+                        mx-6 flex-shrink-0"
                       />
                     </NextLink>
 
