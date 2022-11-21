@@ -29,7 +29,7 @@ const textWithoutUrls = (text: string) => {
 };
 export const getTwitterHotNews = async (): Promise<any> => {
   const baseUrl = "https://api.twitter.com/2";
-  const route = GETListsIdTweetsRoute("31593490");
+  const route = GETListsIdTweetsRoute("1552534080163553280");
   const url = `${baseUrl}${route}?tweet.fields=created_at,entities,public_metrics,source,text,withheld&expansions=author_id&user.fields=created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld`;
 
   const headers = {
