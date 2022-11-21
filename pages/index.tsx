@@ -34,7 +34,7 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
         <div className="flex flex-col w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto ">
           <div className="w-full mx-auto h-full max-w-lg md:max-w-none">
             <div className="flex items-center justify-between w-full flex-1">
-              <h1 className="text-4xl font-bold">Figmos </h1>
+              <h1 className="text-5xl font-bold">Figmos </h1>
               <ThemeChanger />
             </div>
           </div>
