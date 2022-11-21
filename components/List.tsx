@@ -5,9 +5,6 @@ import { parseISO, format } from "date-fns";
 import Divider from "./Divider";
 import Container from "./Container";
 
-const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date) > parseISO(postB.date) ? -1 : 1);
-const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
-
 interface Props {
   links: Link[];
   title: string;
@@ -93,7 +90,7 @@ const MyList = ({ links, title, Icon }: Props) => {
     <Center className="mb-14">
       <Container>
         <Stack gap={2}>
-          <Divider className="border-th-primary-dark border-2" />
+          {/* <Divider className="border-th-primary-dark border-2" /> */}
           <div className="flex items-center w-full">
             <Icon className="w-10 h-10 mr-2" />
             <Text className="text-2xl font-bold">{title}</Text>
