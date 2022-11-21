@@ -3,6 +3,7 @@ import { Link } from "types/link";
 import NextLink from "next/link";
 import { parseISO, format } from "date-fns";
 import Divider from "./Divider";
+import Container from "./Container";
 
 const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date) > parseISO(postB.date) ? -1 : 1);
 const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
@@ -22,23 +23,6 @@ interface CenterProps {
 const Center = ({ children, className, style }: CenterProps) => {
   return (
     <div className={`flex flex-col items-center justify-center w-full h-full ${className}`} style={style}>
-      {children}
-    </div>
-  );
-};
-
-const Container = ({
-  children,
-  className,
-  style,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-}) => {
-  return (
-    // <div className={`w-full mx-auto px-4 sm:px-6 lg:px-8 ${className}`} style={style}>
-    <div className={`w-full mx-auto ${className}`} style={style}>
       {children}
     </div>
   );
@@ -106,8 +90,8 @@ const Stack = ({
 const MyList = ({ links, title, Icon }: Props) => {
   const isLastPost = (index: number) => index === links.length - 1;
   return (
-    <Center className="h-full mb-14">
-      <Container className="h-full max-w-lg">
+    <Center className="mb-14">
+      <Container>
         <Stack gap={2}>
           <Divider className="border-th-primary-dark border-2" />
           <Text className="text-2xl font-bold">{title}</Text>

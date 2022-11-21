@@ -11,6 +11,7 @@ import Twitter from "components/Twitter";
 import HackerNews from "components/HackerNews";
 import { getHackerNews } from "utils/hacker";
 import Divider from "components/Divider";
+import Container from "components/Container";
 
 type IBlog = {
   redditLinks: Link[];
@@ -30,10 +31,12 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1">
-        <div className="flex flex-col w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
-          <div className="flex items-center justify-between w-full flex-1">
-            <h1 className="text-4xl font-bold">Figmos </h1>
-            <ThemeChanger />
+        <div className="flex flex-col w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto ">
+          <div className="w-full mx-auto h-full max-w-lg md:max-w-none">
+            <div className="flex items-center justify-between w-full flex-1">
+              <h1 className="text-4xl font-bold">Figmos </h1>
+              <ThemeChanger />
+            </div>
           </div>
         </div>
         <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
