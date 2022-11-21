@@ -117,9 +117,9 @@ const MyList = ({ links, title, Icon }: Props) => {
     <Center className="h-full mb-14">
       <Container className="h-full max-w-lg">
         <Stack gap={2}>
-          <Divider />
+          <Divider className="border-th-primary-dark border-2" />
           <Text className="text-2xl font-bold">{title}</Text>
-          <Divider />
+          <Divider className="border-th-primary-dark border-2" />
 
           <List className="h-full border-gray-200 py-2">
             <Stack gap={0}>
