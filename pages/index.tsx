@@ -19,7 +19,7 @@ type IBlog = {
   hackerLinks: Link[];
 };
 
-// const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date) > parseISO(postB.date) ? -1 : 1);
+const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date!) > parseISO(postB.date!) ? -1 : 1);
 // const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
 
 const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
@@ -50,9 +50,9 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const redditLinks = (await getRedditHotNews()).sort(sortByDate).slice(0, 5) ?? [];
-  // const twitterLinks = (await getTwitterHotNews()).sort(sortByDate).slice(0, 5) ?? [];
-  // const hackerLinks = (await getHackerNews()).sort(sortByDate).slice(0, 5) ?? [];
+  const redditLinks = (await getRedditHotNews()).sort(sortByDate).slice(0, 5) ?? [];
+  const twitterLinks = (await getTwitterHotNews()).sort(sortByDate).slice(0, 5) ?? [];
+  const hackerLinks = (await getHackerNews()).sort(sortByDate).slice(0, 5) ?? [];
   return {
     props: {
       redditLinks,

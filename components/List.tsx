@@ -108,8 +108,8 @@ const MyList = ({ links, title, Icon }: Props) => {
                   <li key={index} className="flex ">
                     <NextLink href={post.permalink}>
                       <Icon
-                        className="h-5 w-5 text-th-primary-dark
-                        mr-2 mt-1 flex-shrink-0"
+                        className="h-6 w-6 text-th-primary-dark
+                        mr-3 flex-shrink-0"
                       />
                     </NextLink>
 

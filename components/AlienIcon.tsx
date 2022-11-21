@@ -7,7 +7,11 @@ const AlienIcon = (props: any) => (
       className="fill-current text-th-primary-dark"
       d="M89 52.3c0 13.8-11.2 25-25 25s-25-11.2-25-25h50z"
     />
-    <path fill="#fff" d="M64 37.3a50 15 0 1 0 0 30 50 15 0 1 0 0-30Z" />
+    <path
+      //  fill="#fff"
+      className="fill-current text-th-primary-dark"
+      d="M64 37.3a50 15 0 1 0 0 30 50 15 0 1 0 0-30Z"
+    />
     <path
       // fill="#98bed8"
       className="fill-current text-th-primary-dark"
