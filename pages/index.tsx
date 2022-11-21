@@ -34,13 +34,13 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
         <div className="flex flex-col w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto ">
           <div className="w-full mx-auto h-full max-w-lg md:max-w-none">
             <div className="flex items-center justify-between w-full flex-1 my-2">
-              <h1 className="text-5xl font-bold">Figmos </h1>
+              <h1 className="text-4xl font-bold">Figmos </h1>
               <ThemeChanger />
             </div>
           </div>
         </div>
         {/* responsive gaps */}
-        <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-12 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <Reddit links={redditLinks} />
           <Twitter links={twitterLinks} />
           <HackerNews links={hackerLinks} />
