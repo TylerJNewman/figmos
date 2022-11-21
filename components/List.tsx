@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "types/link";
 import NextLink from "next/link";
 import { parseISO, format } from "date-fns";
+import Divider from "./Divider";
 
 const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date) > parseISO(postB.date) ? -1 : 1);
 const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
@@ -36,7 +37,8 @@ const Container = ({
   style?: React.CSSProperties;
 }) => {
   return (
-    <div className={`w-full mx-auto px-4 sm:px-6 lg:px-8 ${className}`} style={style}>
+    // <div className={`w-full mx-auto px-4 sm:px-6 lg:px-8 ${className}`} style={style}>
+    <div className={`w-full mx-auto ${className}`} style={style}>
       {children}
     </div>
   );
@@ -99,16 +101,6 @@ const Stack = ({
       ))}
     </div>
   );
-};
-
-const Divider = ({
-  className,
-  style,
-}: {
-  className?: string;
-  style?: React.CSSProperties;
-}) => {
-  return <div className={`w-full h-px bg-th-primary-light ${className}`} style={style} />;
 };
 
 const MyList = ({ links, title, Icon }: Props) => {
