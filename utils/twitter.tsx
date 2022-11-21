@@ -2,6 +2,7 @@ import axios from "axios";
 import { formatISO } from "date-fns";
 import { GETTweetsSearchRecentResponse, GETListsIdtweetsResponse, GETListsIdTweetsRoute } from "twitter-types";
 import twitter from "twitter-text";
+import { Link } from "types/link";
 
 // convert epoch time to ISO string
 const epochToISO = (epoch: number | string) => formatISO(new Date(+epoch * 1000));
@@ -27,7 +28,7 @@ const textWithoutUrls = (text: string) => {
   const textWithoutUrls = removeEntitiesFromText(text, urls);
   return textWithoutUrls;
 };
-export const getTwitterHotNews = async (): Promise<any> => {
+export const getTwitterHotNews = async (): Promise<Link[]> => {
   const baseUrl = "https://api.twitter.com/2";
   const route = GETListsIdTweetsRoute("1552534080163553280");
   const url = `${baseUrl}${route}?tweet.fields=created_at,entities,public_metrics,source,text,withheld&expansions=author_id&user.fields=created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld`;

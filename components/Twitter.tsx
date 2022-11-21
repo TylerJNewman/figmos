@@ -9,8 +9,8 @@ interface Props {
   links: Link[];
 }
 
-const Reddit = ({ links }: Props) => {
-  return <List links={links} title="Reddit" Icon={Icon} />;
+const Twitter = ({ links }: Props) => {
+  return <List links={links} title="Twitter" Icon={Icon} />;
 };
 
-export default Reddit;
+export default Twitter;
