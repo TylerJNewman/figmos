@@ -52,7 +52,7 @@ const Text = ({
   style?: React.CSSProperties;
 }) => {
   return (
-    <p className={`text-th-primary-dark ${className}`} style={style}>
+    <p className={`${className}`} style={style}>
       {children}
     </p>
   );
@@ -165,7 +165,7 @@ const MyList = ({ links, title, Icon }: Props) => {
                     <div className="flex items-start">
                       {post.permalink ? (
                         <NextLink href={post.permalink}>
-                          <Icon className="h-4 w-4 text-th-primary-dark mx-6 flex-shrink-0 mt-1" />
+                          <Icon className="h-4 w-4 test text-th-primary-dark mx-6 flex-shrink-0 mt-1" />
                         </NextLink>
                       ) : null}
                       <div className="">
