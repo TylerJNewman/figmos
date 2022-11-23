@@ -13,17 +13,20 @@ import { getHackerNews } from "utils/hacker";
 import Divider from "components/Divider";
 import Container from "components/Container";
 import getRedditRss from "utils/getRedditRss";
+import getDiggRss from "utils/getDiggRss";
+import Digg from "components/Digg";
 
 type IBlog = {
   redditLinks: Link[];
   twitterLinks: Link[];
   hackerLinks: Link[];
+  diggLinks: Link[];
 };
 
 const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date!) > parseISO(postB.date!) ? -1 : 1);
 // const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
 
-const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
+const Home = ({ redditLinks, twitterLinks, hackerLinks, diggLinks }: IBlog) => {
   return (
     <div className="font-national_2 min-h-screen  py-2 bg-th-background text-th-primary-dark transition-colors">
       <Head>
@@ -45,6 +48,7 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks }: IBlog) => {
           <Reddit links={redditLinks} />
           <Twitter links={twitterLinks} />
           <HackerNews links={hackerLinks} />
+          <Digg links={diggLinks} />
         </div>
       </main>
     </div>
@@ -55,12 +59,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const redditLinks = (await getRedditHotNews()).sort(sortByDate).slice(0, 5) ?? [];
   const twitterLinks = (await getTwitterHotNews()).sort(sortByDate).slice(0, 5) ?? [];
   const hackerLinks = (await getHackerNews()).sort(sortByDate).slice(0, 5) ?? [];
+  const diggLinks = (await getDiggRss()).sort(sortByDate).slice(0, 5) ?? [];
 
   return {
     props: {
       redditLinks,
       twitterLinks,
       hackerLinks,
+      diggLinks,
     },
     revalidate: 10,
   };
