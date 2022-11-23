@@ -62,6 +62,7 @@ export const getStaticProps: GetStaticProps = async () => {
       twitterLinks,
       hackerLinks,
     },
+    revalidate: 10,
   };
 };
 
