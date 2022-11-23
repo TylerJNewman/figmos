@@ -88,11 +88,15 @@ const MyList = ({ links, title, Icon }: Props) => {
   const isLastPost = (index: number) => index === links.length - 1;
   return (
     <Center>
-      <Container>
+      <Container
+        className="
+        flex flex-col items-end justify-between w-full h-full
+      "
+      >
         <Stack gap={2}>
           <Divider />
           <div className="flex items-center w-full">
-            <Icon className="w-8 h-8 mx-4" />
+            <Icon className="w-6 h-6 mx-5" />
             <Text className="text-2xl font-bold">{title}</Text>
           </div>
 

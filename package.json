@@ -12,6 +12,7 @@
     "@types/twitter-text": "^3.1.4",
     "axios": "^1.1.3",
     "date-fns": "^2.29.3",
+    "fast-xml-parser": "^4.0.12",
     "next": "latest",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
