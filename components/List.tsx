@@ -163,10 +163,11 @@ const MyList = ({ links, title, Icon }: Props) => {
                   <li key={index}>
                     {/* <div className="flex items-start py-5 pl-6"> */}
                     <div className="flex items-start">
-                      <NextLink href={post.permalink}>
-                        <Icon className="h-4 w-4 text-th-primary-dark mx-6 flex-shrink-0 mt-1" />
-                      </NextLink>
-                      {/* <div className="pl-3 pr-10 mt-1"> */}
+                      {post.permalink ? (
+                        <NextLink href={post.permalink}>
+                          <Icon className="h-4 w-4 text-th-primary-dark mx-6 flex-shrink-0 mt-1" />
+                        </NextLink>
+                      ) : null}
                       <div className="">
                         <NextLink href={post.link}>
                           <Text className="font-medium">{post.title}</Text>

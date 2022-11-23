@@ -12,21 +12,26 @@ import HackerNews from "components/HackerNews";
 import { getHackerNews } from "utils/hacker";
 import Divider from "components/Divider";
 import Container from "components/Container";
-import getRedditRss from "utils/getRedditRss";
+import getTechmemeRss from "utils/getTechmemeRss";
 import getDiggRss from "utils/getDiggRss";
 import Digg from "components/Digg";
+import Techmeme from "components/Techmeme";
+import getNyTimesRss from "utils/getNyTimesRss";
+import NyTimes from "components/NyTimes";
 
 type IBlog = {
   redditLinks: Link[];
   twitterLinks: Link[];
   hackerLinks: Link[];
   diggLinks: Link[];
+  techmemeLinks: Link[];
+  nyTimesLinks: Link[];
 };
 
 const sortByDate = (postA: Link, postB: Link) => (parseISO(postA.date!) > parseISO(postB.date!) ? -1 : 1);
 // const formatDate = (date: string) => format(parseISO(date), "LLLL d, yyyy");
 
-const Home = ({ redditLinks, twitterLinks, hackerLinks, diggLinks }: IBlog) => {
+const Home = ({ redditLinks, twitterLinks, hackerLinks, diggLinks, techmemeLinks, nyTimesLinks }: IBlog) => {
   return (
     <div className="font-national_2 min-h-screen  py-2 bg-th-background text-th-primary-dark transition-colors">
       <Head>
@@ -43,12 +48,13 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks, diggLinks }: IBlog) => {
             </div>
           </div>
         </div>
-        {/* responsive gaps */}
         <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <Reddit links={redditLinks} />
           <Twitter links={twitterLinks} />
           <HackerNews links={hackerLinks} />
           <Digg links={diggLinks} />
+          <Techmeme links={techmemeLinks} />
+          <NyTimes links={nyTimesLinks} />
         </div>
       </main>
     </div>
@@ -60,15 +66,18 @@ export const getStaticProps: GetStaticProps = async () => {
   const twitterLinks = (await getTwitterHotNews()).sort(sortByDate).slice(0, 5) ?? [];
   const hackerLinks = (await getHackerNews()).sort(sortByDate).slice(0, 5) ?? [];
   const diggLinks = (await getDiggRss()).sort(sortByDate).slice(0, 5) ?? [];
-
+  const techmemeLinks = (await getTechmemeRss()).sort(sortByDate).slice(0, 5) ?? [];
+  const nyTimesLinks = (await getNyTimesRss()).sort(sortByDate).slice(0, 5) ?? [];
   return {
     props: {
       redditLinks,
       twitterLinks,
       hackerLinks,
       diggLinks,
+      techmemeLinks,
+      nyTimesLinks,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };
 
