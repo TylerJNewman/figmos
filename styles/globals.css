@@ -36,7 +36,7 @@
 }
 
 [data-theme='dark'] {
-  --background: theme('colors.black');
+  --background: theme('colors.gray.900');
   --background-secondary: theme('colors.gray.800');
 
   --accent-dark: theme('colors.fuchsia.900');
@@ -111,3 +111,18 @@
   --primary-medium: theme('colors.gray.200');
   --primary-light: theme('colors.gray.100');
 } */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: var(--background);
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  color: var(--primary-dark);
+}

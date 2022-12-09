@@ -144,12 +144,12 @@ const MyList = ({ links, title, Icon }: Props) => {
           <List className="h-full border-gray-200">
             <Stack gap={0}>
               {links.map((post, index) => (
-                <>
+                <div key={post.link}>
                   {/* <li key={index}>
                     <div className="flex items-center">
                       <NextLink href={post.permalink}>
                         <Icon
-                          className="h-4 w-4 text-th-primary-dark
+                          className="h-4 w-4 text-th-primary-dark transition-colors
                         mx-6 flex-shrink-0"
                         />
                       </NextLink>
@@ -158,14 +158,14 @@ const MyList = ({ links, title, Icon }: Props) => {
                         <Text className="font-medium">{post.title}</Text>
                       </NextLink>
                     </div>
-                    <Text className="text-sm text-th-primary-light">{format(parseISO(post.date), "MMM d, yyyy")}</Text>
+                    <Text className="text-sm text-th-primary-light transition-colors">{format(parseISO(post.date), "MMM d, yyyy")}</Text>
                   </li> */}
-                  <li key={index}>
+                  <li>
                     {/* <div className="flex items-start py-5 pl-6"> */}
                     <div className="flex items-start">
                       {post.permalink ? (
                         <NextLink href={post.permalink}>
-                          <Icon className="h-4 w-4 test text-th-primary-dark mx-6 flex-shrink-0 mt-1" />
+                          <Icon className="h-4 w-4 test text-th-primary-dark transition-colors mx-6 flex-shrink-0 mt-1" />
                         </NextLink>
                       ) : null}
                       <div className="">
@@ -173,14 +173,16 @@ const MyList = ({ links, title, Icon }: Props) => {
                           <Text className="font-medium">{post.title}</Text>
                         </NextLink>
                         {/* <Tooltip text={formatToTime(post.date)}> */}
-                        <Text className="text-sm text-th-primary-light">{formatDateToTimeago(post.date)}</Text>
+                        <Text className="text-sm text-th-primary-light transition-colors">
+                          {formatDateToTimeago(post.date)}
+                        </Text>
                         {/* </Tooltip> */}
                       </div>
                     </div>
                   </li>
 
                   {isLastPost(index) ? null : <Divider className="my-2" />}
-                </>
+                </div>
               ))}
             </Stack>
           </List>
