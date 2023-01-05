@@ -21,6 +21,7 @@ import Digg from "components/Digg";
 import Techmeme from "components/Techmeme";
 import getNyTimesRss from "utils/getNyTimesRss";
 import NyTimes from "components/NyTimes";
+import ThemeChanger from "components/ThemeChanger";
 
 type IBlog = {
   redditLinks: Link[];
@@ -55,8 +56,8 @@ const Home = ({ redditLinks, twitterLinks, hackerLinks, diggLinks, techmemeLinks
           <div className="flex flex-col w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto items-center ">
             <div className="w-full mx-auto h-full max-w-lg md:max-w-none">
               <div className="flex items-center justify-between w-full flex-1 my-2">
-                <h1 className={cn("text-4xl font-bold", myHeaderFont.className)}>Perival</h1>
-                {/* <ThemeChanger /> */}
+                <h1 className={cn("text-xl font-bold")}>Perival</h1>
+                <ThemeChanger />
               </div>
             </div>
           </div>

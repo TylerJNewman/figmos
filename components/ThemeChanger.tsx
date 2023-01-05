@@ -78,7 +78,8 @@ const ThemeChanger = () => {
         <select
           name="theme"
           id="theme-select"
-          className="bg-white text-gray-800 border-gray-800 border py-1 px-3"
+          // className="border py-1 px-3"
+          className="form-select appearance-none block w-full px-3 py-1 text-base font-normal bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded m-0"
           onChange={(e) => setTheme(e.currentTarget.value)}
           value={theme}
         >

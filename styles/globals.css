@@ -43,9 +43,9 @@
   --accent-medium: theme('colors.fuchsia.700');
   --accent-light: theme('colors.fuchsia.500');
 
-  --primary-dark: theme('colors.gray.300');
-  --primary-medium: theme('colors.gray.200');
-  --primary-light: theme('colors.gray.100');
+  --primary-dark: theme('colors.gray.200');
+  --primary-medium: theme('colors.gray.100');
+  --primary-light: theme('colors.gray.50');
 }
 
 [data-theme='emerald'] {
@@ -64,7 +64,7 @@
   --accent-medium: theme('colors.pink.700');
   --accent-light: theme('colors.pink.500');
 
-  --primary-dark: theme('colors.gray.300');
+  --primary-dark: theme('colors.gray.200');
   --primary-medium: theme('colors.gray.200');
   --primary-light: theme('colors.gray.100');
 }
